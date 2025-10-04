@@ -2,6 +2,8 @@
 import BlogCard from "@/components/modules/Blogs/BlogCard";
 import Hero from "@/components/modules/Home/Hero";
 import { Metadata } from "next";
+import { Project } from './../../types/index';
+import ProjectCard from "@/components/modules/projecst/ProjectCard";
 
 
 export const metadata: Metadata = {
@@ -16,9 +18,18 @@ const HomePage = async () => {
     });
       const resData = await res.json();
       const blogs = resData.data.data;
+    //  console.log(blogs)
 
+    const res2 = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
+      next: {
+       tags : ["PROJECT"]
+      }
+    })
 
-//  console.log(blogs)
+    const res2Data = await res2.json();
+    const projects = res2Data.data.data;
+    console.log(projects)
+
 
   return (
     <div >
@@ -32,6 +43,16 @@ const HomePage = async () => {
         ))
         }
       </div>
+
+        <h2 className="text-center my-5 text-4xl">My Projects</h2>
+        
+        <div className="grid grid-cols-2 gap-4 max-w-6xl mx-auto my-10">
+            {
+              projects?.slice(0, 2).map((project: Project )=> (
+                <ProjectCard key={project.id} project={project} />
+              ))
+            }
+        </div>
 
     </div>
   );

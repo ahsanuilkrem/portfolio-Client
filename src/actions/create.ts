@@ -40,3 +40,36 @@ export const create = async (data: FormData) => {
     }
     return result;
 };
+
+export const project = async (data: FormData) => {
+
+    
+    const projectInfo = Object.fromEntries(data.entries());
+    const modifiedProjectData = {
+        ...projectInfo,
+        features: projectInfo.features
+            .toString()
+            .split(",")
+            .map((feature) => feature.trim()),
+        
+    };
+
+    console.log("project", modifiedProjectData)
+
+    const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/project`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(modifiedProjectData),
+    });
+
+    const result = await res.json();
+
+    if (result?.data.id) {
+        revalidateTag("PROJECT");
+        revalidatePath("/project");
+        redirect("/project");
+    }
+    return result;
+};
