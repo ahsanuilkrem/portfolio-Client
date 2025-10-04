@@ -1,12 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import BlogCard from "@/components/modules/Blogs/BlogCard";
 import Hero from "@/components/modules/Home/Hero";
+import { Metadata } from "next";
 
+
+export const metadata: Metadata = {
+  title: "Home",
+}
 
 const HomePage = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`,{
       next: {
-        revalidate: 30,
+        tags: ["BLOGS"],
       }
     });
       const resData = await res.json();
@@ -22,7 +27,7 @@ const HomePage = async () => {
 
       <div className="grid grid-cols-3 gap-4 max-w-6xl mx-auto my-10">
         {
-          blogs?.slice(0.3).map( (blog : any) => ( 
+          blogs?.slice(0, 3).map( (blog : any) => ( 
           <BlogCard key={blog?.id}  post={blog} />
         ))
         }

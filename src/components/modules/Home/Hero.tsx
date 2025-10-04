@@ -1,9 +1,10 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default async function Hero() {
   return (
     <div className="mb-10">
-      <div className="max-h-screen w-full relative border-8 border-red-800">
+      <div className="max-h-screen w-full relative  ">
         {/* Crimson Depth */}
         <div
           className="absolute inset-0 z-0"
@@ -13,30 +14,45 @@ export default async function Hero() {
           }}
         />
 
-        <section className="relative flex flex-col items-center justify-center text-center py-28 px-6 text-white border-8 border-amber-400">
-          {/* Headline */}
-          <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight max-w-5xl leading-tight">
-            Read. Learn. Share. <br className="hidden md:block" />
-            Ideas That Shape the Future
-          </h1>
+        <section className="relative flex flex-col items-center  text-center py-28 px-6 text-white  ">
 
-          {/* Subheadline */}
-          <p className="mt-6 text-lg md:text-xl max-w-2xl">
-            Discover in-depth articles, tutorials, and thought-provoking stories
-            from a global network of creators. Stay updated with fresh insights
-            on technology, design, productivity, and personal growth—all in one
-            place.
-          </p>
+          <div className="flex items-center justify-around ">
+            <div className="w-full h-full rounded-full ml-5">
+              <Image
+                src={"https://i.ibb.co.com/kV5qhZjg/IMG-20250311-115453.jpg"}
+                alt="this is photo"
+                width={300}
+                height={300}
+                className="rounded-full w-96 h-96 "
+              />
+            </div>
 
-          {/* CTA */}
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <Link
-              href="/blog"
-              className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-xl border border-input hover:bg-accent hover:text-accent-foreground transition"
-            >
-              Explore Blogs
-            </Link>
+            <div className="space-y-6">
+              <h1 className="text-3xl md:text-2xl font-extrabold tracking-tight  ">
+                Mohammed Ahsan    <br className="hidden md:block" />
+                Full Stack Developer (MERN Stack)    
+              </h1>
+
+
+              <p className="mt-6 text-lg md:text-xl ">
+                Enthusiastic and detail-oriented Junior Backend Developer with a strong foundation 
+                in server-side development, API creation, and database management. Eager to contribute 
+                to impactful backend systems and collaborate with cross-functional teams to build scalable web applications.
+              </p>
+
+              <div className="mt-10 flex flex-col sm:flex-row  justify-center">
+                <Link
+                  href="/"
+                  className="inline-flex items-center justify-center px-8 py-4 font-medium rounded-xl border border-input hover:bg-accent hover:text-accent-foreground transition"
+                >
+                  My Resume
+                </Link>
+              </div>
+
+            </div>
+
           </div>
+
         </section>
       </div>
     </div>

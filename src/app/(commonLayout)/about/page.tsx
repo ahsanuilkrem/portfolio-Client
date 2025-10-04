@@ -1,6 +1,10 @@
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "About",
+}
 
-const page = () => {
+const AboutPage = () => {
     return (
         <div>
             <h1>About me</h1>
@@ -8,4 +12,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default AboutPage;

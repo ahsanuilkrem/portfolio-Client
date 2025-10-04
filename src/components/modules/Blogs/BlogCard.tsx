@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function BlogCard({ post }: { post: any }) {
   return (
     <Link
-      href={`/blogs/${post.id}`}
+      href={`/blog/${post.id}`}
       className="block group transform hover:-translate-y-1 transition-transform duration-300"
     >
-      <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+      <div className="bg-white dark:bg-gray-900 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 ">
         {post.thumbnail ? (
           <div className="relative h-56 w-full overflow-hidden">
             <Image
@@ -30,7 +30,7 @@ export default function BlogCard({ post }: { post: any }) {
           </h3>
 
           <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-3">
-             {post.content}
+             {post.content.slice(0, 60)}...
           </p>
            
            

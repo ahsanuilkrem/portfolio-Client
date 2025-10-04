@@ -1,11 +1,30 @@
+import { getUserSession } from '@/helpers/getUserSession';
+import { Metadata } from 'next';
 import React from 'react';
 
-const DashboardPage = () => {
-    return (
-        <div>
-            <h1>Dashboard Page</h1>
-        </div>
-    );
+
+export const metadata: Metadata = {
+  title: "Dashboard",
+}
+
+
+
+const DashboardPage = async () => {
+
+  const session = await getUserSession();
+
+
+  return (
+    <div className="min-h-screen flex flex-col justify-center items-center bg-gray-50 p-6 w-full">
+      <h1 className="text-4xl font-bold text-gray-800 mb-4">
+        Welcome, {session?.user?.name}!
+      </h1>
+      <p className="text-lg text-gray-600 italic text-center">
+        {session?.user?.email}
+      </p>
+
+    </div>
+  );
 };
 
 export default DashboardPage;
