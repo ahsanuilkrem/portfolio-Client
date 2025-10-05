@@ -9,9 +9,12 @@ export default function PublicLayout({
 }>) {
   return (
     <>
-      <Navbar />
+    <div className=" bg-blue-50">
+       <Navbar />
       <main className="min-h-dvh">{children}</main>
       <Footer />
+    </div>
+     
     </>
   );
 }

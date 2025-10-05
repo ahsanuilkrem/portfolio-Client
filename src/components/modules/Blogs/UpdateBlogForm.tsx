@@ -2,22 +2,17 @@
 
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Blog } from "@/types";
+import toast from "react-hot-toast";
 
-type Blog = {
-  id: number;
-  title: string;
-  content: string;
-  thumbnail?: string;
-  tags: string[];
-};
 
-export default function UpdateBlogForm ({ blog: id }: { blog:number }) {
-  
+export default function UpdateBlogForm({ blog: id }: { blog: number }) {
+
   const router = useRouter();
 
   const [blog, setBlog] = useState<Blog | null>(null);
   const [loading, setLoading] = useState(true);
-  
+
 
   useEffect(() => {
     const fetchBlog = async () => {
@@ -27,7 +22,8 @@ export default function UpdateBlogForm ({ blog: id }: { blog:number }) {
         setBlog(json?.data);
       } catch (err) {
         console.error("Failed to load blog", err);
-      } finally {
+      }
+      finally {
         setLoading(false);
       }
     };
@@ -48,20 +44,24 @@ export default function UpdateBlogForm ({ blog: id }: { blog:number }) {
     };
 
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post/${id}`, {
-      method: "PUT",
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updated),
     });
 
     if (res.ok) {
-      alert("Blog updated successfully");
-      router.push("/dashboard/all-Blog");
+      toast.dismiss();
+      toast.success("✅ Blog updated successfully!");
+      router.push("/blog");
     } else {
-      alert("Failed to update blog");
+      toast.dismiss();
+      toast.error("🚨 Failed to update blog");
+      
     }
   };
 
   if (loading || !blog) return <div>Loading blog...</div>;
+
 
   return (
     <form onSubmit={handleUpdate} className="max-w-4xl mx-auto p-6 bg-white shadow rounded space-y-4 w-full">

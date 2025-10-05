@@ -1,36 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+💼 My Portfolio Website
 
-First, run the development server:
+A full-stack personal portfolio website built with Next.js, TypeScript, Express.js, and Prisma, featuring dynamic content management, secure authentication, and a polished user experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Table of Contents
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+📖 Overview
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+🚀 Features
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🛠️ Tech Stack
 
-## Learn More
+📄 Public Pages
 
-To learn more about Next.js, take a look at the following resources:
+🔐 Private Pages
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🎯 Project Setup
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+⚠️ Error Handling & Validation
 
-## Deploy on Vercel
+📬 Contact
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📖 Overview
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This portfolio website is designed to showcase a developer's personal information, projects, and blog posts. It also features a secure, private dashboard for managing dynamic content like blogs and projects.
+
+🚀 Features
+✅ Public (No Login Required)
+
+View blogs, projects, and about me section.
+
+Responsive layout and polished UX.
+
+Uses ISR (Incremental Static Regeneration) for optimal performance.
+
+🔐 Private (Admin Only)
+
+JWT-based authentication for secure login.
+
+Private dashboard to manage blog posts and project entries.
+
+CRUD operations for blog content.
+
+Project data management (if implemented).
+
+🛠️ Tech Stack
+Area	Technology
+Frontend	Next.js, TypeScript
+Styling	Tailwind CSS
+State/UX	react-hot-toast for feedback
+Backend	Express.js, Node.js
+Database	PostgreSQL + Prisma ORM (or MongoDB + Mongoose as alternative)
+Auth	JWT + bcrypt (secure password hashing)
+Rich Text	Optional: React Quill for blog editor
+📄 Public Pages
+📰 All Blogs Page
+
+Shows all blogs.
+
+Built using ISR for live content updates without full rebuild.
+
+Fast load via getStaticProps.
+
+📝 Blog Detail Page
+
+Individual blog post rendered using:
+
+getStaticPaths + getStaticProps
+
+revalidate for incremental updates.
+
+👤 About Me
+
+Static section with:
+
+Name, contact, bio, experience, skills.
+
+Fetched using SSG for fast performance.
+
+💻 Project Showcase
+
+Grid/list view of personal projects.
+
+Each includes:
+
+Title, thumbnail, description, features, and live link.
+
+Built using ISR.
+
+🔐 Private Pages
+🔑 Authentication
+
+JWT-based login for admin (owner only).
+
+Passwords hashed with bcrypt.
+
+Admin user seeded during backend setup.
+
+🧑‍💻 Dashboard
+
+Owner-only page to:
+
+Create / Read / Update / Delete blogs.
+
+Manage project entries (if implemented).
+
+Protected by route guards and token validation.
+
+✨ Bonus Features (Optional but Recommended)
+🖋️ Rich Text Editor
+
+Blog content editor with formatting (bold, italic, links, images).
+
+Suggested: React Quill.
+
+🌐 General UI/UX Enhancements
+
+Smooth transitions, skeleton loaders, carousels.
+
+Lazy loading images and assets.
+
+Semantic HTML & accessibility best practices.
+
+🎯 Project Setup
+1. Clone the repository
+git clone https://github.com/ahsanuilkrem/portfolio-Client.git
+cd portfolio-site
+
+2. Install dependencies
+# For frontend
+cd client
+npm install
+
+# For backend
+cd ../server
+npm install
+
+⚠️ Error Handling & Validation
+
+This project follows strict error handling guidelines to ensure reliability and a polished experience:
+
+✅ Form Validation
+
+Required fields
+
+Email format checks
+
+Password match checks
+
+✅ API Error Handling
+
+Try-catch on all async handlers
+
+Descriptive error responses
+
+✅ Toast Notifications
+
+Uses react-hot-toast for:
+
+Success messages (e.g., "Blog Created ✅")
+
+Error alerts (e.g., "Unauthorized ❌")
+
+⚠️ Missing validation or broken error handling will result in a major penalty if this is being submitted as an assignment.
+
+📸 Screenshots (optional)
+
+Include UI screenshots or GIFs here if needed.

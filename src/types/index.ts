@@ -12,3 +12,16 @@ export interface Project {
   createdAt: string;
   updatedAt: string;
 }
+
+export interface Blog {
+  id: number;
+  title: string;
+  content: string;
+  thumbnail?: string;
+  isFeatured: boolean;
+  tags: string[];
+  views: number;
+  authorId: number;
+  createdAt: string; 
+  updatedAt: string; 
+};

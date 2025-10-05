@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 import AllBlogs from "@/components/modules/Blogs/AllBlogs";
+import { Metadata } from "next";
 
+export const metadata: Metadata = {
+  title: "Dashboard | all Blog post",
+}
 
 const AllBlogPage = async () => {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_API}/post`, {
@@ -10,7 +14,7 @@ const AllBlogPage = async () => {
     const resData = await res.json();
     const blogs = resData.data.data;
 
-    console.log("all blog", blogs)
+    // console.log("all blog", blogs)
     return (
         <div>
             <h1 className="text-3xl font-bold text-center my-4"> All Blog post</h1>

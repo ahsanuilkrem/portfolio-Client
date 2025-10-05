@@ -6,7 +6,7 @@ export const metadata: Metadata = {
 
 const AboutPage = () => {
     return (
-        <div>
+        <div className=" bg-blue-50">
             <div>
                 <main className="max-w-3xl mx-auto px-6 py-12 mt-20">
                     <span className=" uppercase tracking-wide">
